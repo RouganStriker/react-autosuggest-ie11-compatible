@@ -475,8 +475,13 @@ export default class Autosuggest extends Component {
       typeof window !== 'undefined' &&
       !!window.MSInputMethodContext &&
       !!document.documentMode;
+    const {
+      onChange,
+      ...otherInputProps,
+    } = inputProps;
+
     const autowhateverInputProps = {
-      ...inputProps,
+      ...otherInputProps,
       onFocus: event => {
         if (
           !this.justSelectedSuggestion &&
